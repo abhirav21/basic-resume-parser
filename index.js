@@ -8,6 +8,7 @@ export const handler = async (event) => {
     
     let resume;
     try {
+         //main function to parse resume
         resume = await new ResumeParser(event?.queryStringParameters?.cv);
     }
     catch (err) {
@@ -16,13 +17,13 @@ export const handler = async (event) => {
 
     let resumeJson;
     try {
-        //use parseToJSON to get JSON from jsonparser
+        //use parseToJSON to get JSON from resumeparser
         resumeJson = await resume.parseToJSON();
     }
     catch (err) {
         console.log('rm_JSONParser_error', err);
     }
-        // create sheet object (to used later to add row to google sheets)
+        // create sheet object (to be used later to add data to google sheets)
     let sheetInsertObject = createSheetObject(resumeJson);
    
     try {
@@ -36,7 +37,7 @@ export const handler = async (event) => {
     try {
         //connect to google sheet
         const sheetConn = await connectToGoogleSheet();
-        //add data as a row to google sheet
+        //add data to google sheet
         await addRow(sheetConn, sheetInsertObject);
 
     }

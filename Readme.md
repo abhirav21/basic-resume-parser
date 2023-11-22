@@ -1,6 +1,6 @@
 # Basic Resume Parser
 
-This is the source code for a lambda function that parses through Resumes / CVs converts it to JSON and uploads the parsed data to a Google sheet.
+This is the source code for an aws lambda function that parses through Resumes / CVs converts it to JSON and uploads the parsed data to a Google sheet.
 It makes use of `easy-resume-parser` to parse through resumes of various formats and then finally adds the parsed data to a Google sheet.
 This library supports parsing of CVs / Resumes in the word (.doc or .docx) / TXT / PDF / HTML format to extract the necessary information in a predefined JSON format.
 

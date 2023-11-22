@@ -1,13 +1,13 @@
 
 import ResumeParser from 'easy-resume-parser';
 import { connectToGoogleSheet, addRow } from './utils/googlesheets.js'
-import { processResume, createSheetObject } from './utils/addprocessing.js'
+import { processResume, createSheetObject } from './utils/helper.js'
 
 export const handler = async (event) => {
     console.log("-- invoking resume parser --");
     let resume;
     try {
-        resume = await new ResumeParser(event?.queryStringParameters?.cv || "https://resume-tern.s3.ap-south-1.amazonaws.com/CV.pdf");
+        resume = await new ResumeParser(event?.queryStringParameters?.cv);
     }
     catch (err) {
         console.error('rm_resumeParser_error', err);

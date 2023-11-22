@@ -42,3 +42,4 @@ lerna-debug.log*
 temp_images/
 credentials.json
 testhandler.js
+Archive.zip

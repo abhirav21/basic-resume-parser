@@ -8,15 +8,16 @@ export const connectToGoogleSheet = async () => {
         key: process.env.GCP_KEY.split(String.raw`\n`).join('\n'),
         scopes: SCOPES,
     });
-
+    //create connection to google sheet using a service account
     const doc = new GoogleSpreadsheet(process.env.SPREADSHEET_ID, serviceAccountAuth);
     await doc.loadInfo()
     //Return sheet connection object
     return doc.sheetsByIndex[0];
 }
 
-export const addRow = async (sheet, sheetObject) => {
+export const addRow = async (sheet, sheetInsertObject) => {
+    //code for adding data to google sheet
     await sheet.addRows([
-        { ...sheetObject },
+        { ...sheetInsertObject },
     ])
 }

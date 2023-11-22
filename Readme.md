@@ -38,7 +38,9 @@ Supports the following formats provided by [textract]
     - `underscore`
 
 ## How it Works
-The parser is based on a dictionary of rules of how to handle a Resume file. It has a "/src/dictionary.js" file, where all rules are placed. I have tweaked the dictionary.js file as per the test resumes. The dictionary file contains an object with the following structure:
+The parser is based on a dictionary of rules of how to handle a Resume file. It has a "/src/dictionary.js" file, where all rules are placed. I have tweaked the dictionary.js file as per some test resumes.
+
+The dictionary file contains an object with the following structure:
 {
 	titles: {},
 	inline: {},

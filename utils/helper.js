@@ -1,3 +1,4 @@
+/* Function to add postprocessing to resumeparser */
 export const processResume = (resumeJson, sheetObject) => {
 
     // Try and get details from personal profile
@@ -16,7 +17,7 @@ export const processResume = (resumeJson, sheetObject) => {
         }
         if (name) {
             // Uppercase first letter of each word
-            //overwrite name from personal details
+            // Overwrite name to sheet object from personal details
             sheetObject.Name = name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ').replaceAll(/[^A-Za-z0-9. ]/g, "").trim();
 
         }
@@ -31,7 +32,7 @@ export const createSheetObject = (resumeJson) => {
     return {
         Name: resumeJson?.parts?.name?.trim(),
         'Email address': resumeJson?.parts?.email?.trim(),
-        // remove 
+        // remove spaces
         Phone: resumeJson?.parts?.phone?.replace(/ /g, ''),
         Education: resumeJson?.parts?.education?.trim(),
         'Work experience': resumeJson?.parts?.experience?.trim(),

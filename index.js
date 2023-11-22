@@ -5,6 +5,7 @@ import { processResume, createSheetObject } from './utils/helper.js'
 
 export const handler = async (event) => {
     console.log("-- invoking resume parser --");
+    
     let resume;
     try {
         resume = await new ResumeParser(event?.queryStringParameters?.cv);
@@ -25,7 +26,7 @@ export const handler = async (event) => {
     let sheetInsertObject = createSheetObject(resumeJson);
    
     try {
-         //Add extra processing to weed out minor issues in name parsing etc.
+         //Add extra processing to weed out minor issues in parsing for name etc.
          sheetInsertObject = processResume(resumeJson, sheetInsertObject);
     }
     catch (err) {

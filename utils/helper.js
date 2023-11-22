@@ -1,5 +1,3 @@
-const excludeNames = ["resumes", ]
-
 export const processResume = (resumeJson, sheetObject) => {
 
     // Try and get details from personal profile

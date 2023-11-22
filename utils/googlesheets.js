@@ -1,6 +1,5 @@
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-const spreadsheetId = '1wWLbMK0BeVoAshFfesIGYav6MjZo6P2NKRzdS-azfl4';
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
 export const connectToGoogleSheet = async () => {
@@ -10,7 +9,7 @@ export const connectToGoogleSheet = async () => {
         scopes: SCOPES,
     });
 
-    const doc = new GoogleSpreadsheet(spreadsheetId, serviceAccountAuth);
+    const doc = new GoogleSpreadsheet(process.env.SPREADSHEET_ID, serviceAccountAuth);
     await doc.loadInfo()
     //Return sheet connection object
     return doc.sheetsByIndex[0];

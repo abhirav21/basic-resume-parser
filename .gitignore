@@ -40,3 +40,5 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 temp_images/
+credentials.json
+testhandler.js

@@ -1,0 +1,17 @@
+{
+  "name": "resumeparser",
+  "version": "1.0.0",
+  "description": "parse resumes ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abhirav sharma",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "easy-resume-parser": "^1.0.1",
+    "google-spreadsheet": "^4.1.1"
+  }
+}
